@@ -192,8 +192,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-12-17 19:32:32" itemprop="dateCreated datePublished" datetime="2019-12-17T19:32:32+08:00">2019-12-17</time>
+              <time title="Created: 2019-12-17 19:32:32 / Modified: 19:34:43" itemprop="dateCreated datePublished" datetime="2019-12-17T19:32:32+08:00">2019-12-17</time>
             </span>
 
           <br>
@@ -232,11 +233,14 @@
 }
 <span class="keyword">var</span> sin_instance *single = <span class="literal">nil</span>
 <span class="keyword">var</span> once sync.Once
-</code></pre>
+<span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span>*<span class="title">single</span></span>{
+  once.Do(<span class="function"><span class="keyword">func</span><span class="params">()</span></span>{
+       sin_instance = <span class="built_in">new</span>(single)
+  })
+  <span class="keyword">return</span> sin_instance
+}</code></pre>
 </li>
 </ol>
-<p>func New()*single{<br>     once.Do(func(){<br>          sin_instance = new(single)<br>     })<br>     return sin_instance<br>}</p>
-<p>``` </p>
 
       
     </div>
