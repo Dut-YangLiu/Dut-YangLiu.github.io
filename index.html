@@ -169,6 +169,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/19/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" class="post-title-link" itemprop="url">最长无重复子串</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-19 16:20:42" itemprop="dateCreated datePublished" datetime="2019-12-19T16:20:42+08:00">2019-12-19</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="最长无重复子串"><a href="#最长无重复子串" class="headerlink" title="最长无重复子串"></a>最长无重复子串</h1><p>使用滑动窗口的方法，查找以每个字符开头最长的无重复子串</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//max lengh of substr without repeat charactor</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//return maxlen and the indexs of byte in the str</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">FindMaxSubstr</span><span class="params">(str <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">int</span>, []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	strmap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">byte</span>]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">	strres := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	reslen := <span class="number">0</span></span><br><span class="line">	result := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">	i := <span class="number">0</span></span><br><span class="line">	j := <span class="number">0</span></span><br><span class="line">	n := <span class="built_in">len</span>(str)</span><br><span class="line">	<span class="keyword">for</span> i &lt; n &amp;&amp; j &lt; n &#123;</span><br><span class="line">		fmt.Println(i, j, strmap, strres, reslen)</span><br><span class="line">		<span class="keyword">if</span> _, ok := strmap[str[j]]; !ok &#123;</span><br><span class="line">			strmap[str[j]] = j</span><br><span class="line">			j++</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			reslen = <span class="built_in">len</span>(strres)</span><br><span class="line">			resstrij := <span class="built_in">len</span>(strmap)</span><br><span class="line">			<span class="keyword">if</span> reslen &lt; resstrij &#123;</span><br><span class="line">				strres = []<span class="keyword">byte</span>(str[i:j])</span><br><span class="line">				result = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">				result = <span class="built_in">append</span>(result, i)</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> reslen == resstrij &#123;</span><br><span class="line">				result = <span class="built_in">append</span>(result, i)</span><br><span class="line">			&#125;</span><br><span class="line">			i = strmap[str[j]] + <span class="number">1</span></span><br><span class="line">			j = i</span><br><span class="line">			strmap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">byte</span>]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> reslen, result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	str := <span class="string">"abccdeace"</span></span><br><span class="line">	maxlen, idxs := FindMaxSubstr(str)</span><br><span class="line">	<span class="keyword">for</span> _, idx := <span class="keyword">range</span> idxs &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"the max sucstr of %v is %v\n"</span>, str, str[idx:idx+maxlen])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">运行结果：</span></span><br></pre></td></tr></table></figure>
+<p>0 0 map[] [] 0<br>0 1 map[97:0] [] 0<br>0 2 map[98:1 97:0] [] 0<br>0 3 map[97:0 98:1 99:2] [] 0<br>3 3 map[] [97 98 99] 0<br>3 4 map[99:3] [97 98 99] 0<br>3 5 map[100:4 99:3] [97 98 99] 0<br>3 6 map[101:5 99:3 100:4] [97 98 99] 0<br>3 7 map[101:5 97:6 99:3 100:4] [97 98 99] 0<br>4 4 map[] [99 100 101 97] 3<br>4 5 map[100:4] [99 100 101 97] 3<br>4 6 map[100:4 101:5] [99 100 101 97] 3<br>4 7 map[100:4 101:5 97:6] [99 100 101 97] 3<br>4 8 map[100:4 101:5 97:6 99:7] [99 100 101 97] 3<br>6 6 map[] [99 100 101 97] 4<br>6 7 map[97:6] [99 100 101 97] 4<br>6 8 map[97:6 99:7] [99 100 101 97] 4<br>the max sucstr of abccdeace is cdea<br>the max sucstr of abccdeace is deac<br>[Done] exited with code=0 in 0.456 seconds</p>
+<pre><code></code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/markdown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1009,7 +1083,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1049,12 +1123,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">8k</span>
+    <span title="Symbols count total">10k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">8 mins.</span>
+    <span title="Reading time total">9 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
