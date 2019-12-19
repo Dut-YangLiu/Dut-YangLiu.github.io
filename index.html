@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-19 16:20:42 / Modified: 16:24:29" itemprop="dateCreated datePublished" datetime="2019-12-19T16:20:42+08:00">2019-12-19</time>
+              <time title="Created: 2019-12-19 16:20:42 / Modified: 16:37:19" itemprop="dateCreated datePublished" datetime="2019-12-19T16:20:42+08:00">2019-12-19</time>
             </span>
 
           <br>
@@ -203,7 +203,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -240,10 +240,14 @@
     n := <span class="built_in">len</span>(str)
     <span class="keyword">for</span> i &lt; n &amp;&amp; j &lt; n {
         fmt.Println(i, j, strmap, strres, reslen)
+        <span class="comment">//使用map记录每次遍历过程中无重复字符以及所在的位置信息</span>
         <span class="keyword">if</span> _, ok := strmap[str[j]]; !ok {
             strmap[str[j]] = j
             j++
         } <span class="keyword">else</span> {
+            <span class="comment">//遇到重复字符，开始处理：</span>
+            <span class="comment">//与strres比较长短，以及清空初始化操作</span>
+            <span class="comment">//将i设置到j对应的字符第一次出现的下个位置，进行下一个过程</span>
             reslen = <span class="built_in">len</span>(strres)
             resstrij := <span class="built_in">len</span>(strmap)
             <span class="keyword">if</span> reslen &lt; resstrij {

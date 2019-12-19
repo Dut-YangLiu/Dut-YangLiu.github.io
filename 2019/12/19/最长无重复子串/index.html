@@ -55,7 +55,7 @@
 <meta property="og:description" content="最长无重复子串使用滑动窗口的方法，查找以每个字符开头最长的无重复子串  &#x2F;&#x2F;max lengh of substr without repeat charactor package main  import &quot;fmt&quot;  &#x2F;&#x2F;return maxlen and the indexs of byte in the str func FindMaxSubstr(str string) (int, []">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-19T08:20:42.132Z">
-<meta property="article:modified_time" content="2019-12-19T08:24:29.825Z">
+<meta property="article:modified_time" content="2019-12-19T08:37:19.937Z">
 <meta property="article:author" content="Yang Liu">
 <meta name="twitter:card" content="summary">
 
@@ -195,7 +195,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-19 16:20:42 / Modified: 16:24:29" itemprop="dateCreated datePublished" datetime="2019-12-19T16:20:42+08:00">2019-12-19</time>
+              <time title="Created: 2019-12-19 16:20:42 / Modified: 16:37:19" itemprop="dateCreated datePublished" datetime="2019-12-19T16:20:42+08:00">2019-12-19</time>
             </span>
 
           
@@ -211,7 +211,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -248,10 +248,14 @@
     n := <span class="built_in">len</span>(str)
     <span class="keyword">for</span> i &lt; n &amp;&amp; j &lt; n {
         fmt.Println(i, j, strmap, strres, reslen)
+        <span class="comment">//使用map记录每次遍历过程中无重复字符以及所在的位置信息</span>
         <span class="keyword">if</span> _, ok := strmap[str[j]]; !ok {
             strmap[str[j]] = j
             j++
         } <span class="keyword">else</span> {
+            <span class="comment">//遇到重复字符，开始处理：</span>
+            <span class="comment">//与strres比较长短，以及清空初始化操作</span>
+            <span class="comment">//将i设置到j对应的字符第一次出现的下个位置，进行下一个过程</span>
             reslen = <span class="built_in">len</span>(strres)
             resstrij := <span class="built_in">len</span>(strmap)
             <span class="keyword">if</span> reslen &lt; resstrij {
