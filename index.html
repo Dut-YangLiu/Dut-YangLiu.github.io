@@ -169,6 +169,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/%E4%B8%80%E5%8F%B0%E7%89%A9%E7%90%86%E6%9C%BA%E6%A8%A1%E6%8B%9F%E5%A4%9Asocketip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/25/%E4%B8%80%E5%8F%B0%E7%89%A9%E7%90%86%E6%9C%BA%E6%A8%A1%E6%8B%9F%E5%A4%9Asocketip/" class="post-title-link" itemprop="url">一台物理机模拟多socketip</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-25 19:23:53" itemprop="dateCreated datePublished" datetime="2019-12-25T19:23:53+08:00">2019-12-25</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一台物理机模拟多socketip"><a href="#一台物理机模拟多socketip" class="headerlink" title="一台物理机模拟多socketip"></a>一台物理机模拟多socketip</h1><p>1、配置网卡多ip：<br>初始网卡信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">lo        Link encap:Local Loopback</span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:4996559645 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:4996559645 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0</span><br><span class="line">          RX bytes:759318440193 (707.1 GiB)  TX bytes:759318440193 (707.1 GiB)</span><br><span class="line"></span><br><span class="line">xgbe0     Link encap:Ethernet  HWaddr 98:03:9B:7A:1E:F0</span><br><span class="line">          inet addr:10.229.197.145  Bcast:10.229.197.191  Mask:255.255.255.192</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:8795869042 errors:0 dropped:6515 overruns:0 frame:0</span><br><span class="line">          TX packets:4684090500 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000</span><br><span class="line">          RX bytes:9225606216786 (8.3 TiB)  TX bytes:419302401757 (390.5 GiB)</span><br></pre></td></tr></table></figure>
+
+<p>1、配置多ip通过增加别名的方式进行添加，对网卡xgbe0增加别名，格式为xgbe0:n (0&lt;=n&lt;=255), 对应的配置文件为/etc/sysconfig/network-scripts/ifcfg-xgbe0，在文件目录中添加ifcfg-xgbe0:10</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=xgbe0:10</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">ONBOOT=yes</span><br><span class="line">NETMASK=255.255.255.192</span><br><span class="line">IPADDR=192.168.0.10</span><br></pre></td></tr></table></figure>
+
+<p>2、设置虚拟网卡启动：ifup  xgbe0:10，可以看到网络配置中已有虚拟网卡的信息</p>
+<p>在本机上ping  192.168.0.10，已连通；如果想在其他机器上ping通，需要设置与其他机器相同的网络段</p>
+<p>类似的也可以设置 192.168.0.11等，但是此时如果通过curl发送请求192.168.0.11，实际使用的cip是192.168.0.10，</p>
+<p>这是应为请求的时候只是指定了服务端的ip地址，客户端的ip没有设定，一般会选择ip设置中的第一个作为默认cip，要</p>
+<p>想实现客户端ip设置为指定的ip，要在socket建立连接的时候显示指定客户端ip。</p>
+<p>以golang为例显示指定客户端ip：<br>自定义的Dial实现指定客户端IP：</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">DialCustom</span><span class="params">(network, address <span class="keyword">string</span>, timeout time.Duration, localIP []<span class="keyword">byte</span>, localPort <span class="keyword">int</span>)</span> <span class="params">(net.Conn, error)</span></span> &#123;</span><br><span class="line">    netAddr := &amp;net.TCPAddr&#123;Port: localPort&#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(localIP) != <span class="number">0</span> &#123;</span><br><span class="line">        netAddr.IP = localIP</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"netAddr:"</span>, netAddr)</span><br><span class="line">    d := net.Dialer&#123;Timeout: timeout, LocalAddr: netAddr&#125;</span><br><span class="line">    <span class="keyword">return</span> d.Dial(network, address)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>附件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">FileBase=/etc/sysconfig/network-scripts/ifcfg-xgbe0</span><br><span class="line">ifcfg-xgbe0</span><br><span class="line">EndNum=20</span><br><span class="line"></span><br><span class="line">function SetUp()&#123;</span><br><span class="line">    for i in `seq 10 $EndNum`</span><br><span class="line">        do</span><br><span class="line">            cp $FileBase $FileBase:$i</span><br><span class="line">            sed -i "s/xgbe0/xgbe0:$i/g" $FileBase:$i</span><br><span class="line">            sed -i "s/10.229.196.142/192.168.0.$i/g" $FileBase:$i</span><br><span class="line">            ifup xgbe0:$i</span><br><span class="line">        done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Dele()&#123;</span><br><span class="line">    for i in `seq 10 $EndNum`</span><br><span class="line">        do </span><br><span class="line">           if [ -f $FileBase:$i ];</span><br><span class="line">           then</span><br><span class="line">               ifdown xgbe0:$i</span><br><span class="line">               rm $FileBase:$i</span><br><span class="line">           fi</span><br><span class="line">        done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function main()&#123;</span><br><span class="line">   if [ "$1"x == "s"x ]</span><br><span class="line">   then</span><br><span class="line">      SetUp</span><br><span class="line">   elif [ "$1"x == "d"x  ]</span><br><span class="line">   then</span><br><span class="line">      Dele</span><br><span class="line">   fi</span><br><span class="line">&#125;</span><br><span class="line">main $1</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/32%E4%BD%8D%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -978,85 +1066,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/16/sublime3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/16/sublime3/" class="post-title-link" itemprop="url">sublime3</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-12-16 22:05:12 / Modified: 22:05:21" itemprop="dateCreated datePublished" datetime="2019-12-16T22:05:12+08:00">2019-12-16</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>1、安装sublime text 3 ，目前gosublime不再支持sublime text2<br>2、安装之后打开sublime，安装package control，打开控制台control+`，在控制台输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h&#x3D;&#39;7183a2d3e96f11eeadd761d777e62404&#39;+&#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
-
-<p>3、重启sublime，打开preferences，多了package control以及其setting，安装成功<br>4、ctrl+shift+p打开控制面板选择 install packages，安装gosublime<br>5、设置gosublime,preferences-&gt;package-setting-&gt;user:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;env&quot;: &#123;</span><br><span class="line">        &quot;GOPATH&quot;: &quot;&#x2F;Users&#x2F;XXX&#x2F;mygo&quot;,</span><br><span class="line">        &quot;GOROOT&quot;: &quot;&#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;go&#x2F;1.6.2&#x2F;libexec&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>6、设置go build, tools-&gt;build system-&gt;new build:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     &quot;shell_cmd&quot;:  &quot;go build $filename&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1127,7 +1136,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1167,12 +1176,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">7k</span>
+    <span title="Symbols count total">9k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">7 mins.</span>
+    <span title="Reading time total">8 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.1.1
   </div>
