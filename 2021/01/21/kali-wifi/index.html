@@ -47,29 +47,31 @@
   };
 </script>
 
-  <meta name="description" content="heyhey">
-<meta property="og:type" content="website">
+  <meta name="description" content="非常感谢github的mr.wrfly，找了网络上绝大部分驱动，只有这个好用，而且还收到了耐心指导，这里只是做个备注，直接引自大神的操作 如下： 1234567891011121314151617181920212223kali安装编译工具 sudo apt-get install linux-headers-$(uname -r) #这个是大神的脚本，可以到github上直接下载运行，也可以一步">
+<meta property="og:type" content="article">
 <meta property="og:title" content="YangLiu&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/2021/01/21/kali-wifi/index.html">
 <meta property="og:site_name" content="YangLiu&#39;s Blog">
-<meta property="og:description" content="heyhey">
+<meta property="og:description" content="非常感谢github的mr.wrfly，找了网络上绝大部分驱动，只有这个好用，而且还收到了耐心指导，这里只是做个备注，直接引自大神的操作 如下： 1234567891011121314151617181920212223kali安装编译工具 sudo apt-get install linux-headers-$(uname -r) #这个是大神的脚本，可以到github上直接下载运行，也可以一步">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-21T13:48:21.115Z">
+<meta property="article:modified_time" content="2021-01-21T13:48:21.115Z">
 <meta property="article:author" content="Yang Liu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/page/2/">
+<link rel="canonical" href="http://yoursite.com/2021/01/21/kali-wifi/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>YangLiu's Blog</title>
+  <title> | YangLiu's Blog</title>
   
 
 
@@ -165,11 +167,11 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/markdown/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/kali-wifi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +185,6 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/21/markdown/" class="post-title-link" itemprop="url">Untitled</a>
         </h1>
 
         <div class="post-meta">
@@ -196,13 +197,20 @@
               <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
             </span>
 
-          <br>
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>67</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -221,204 +229,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h1><p>这是一篇讲解如何正确使用 <strong>Markdown</strong> 的排版示例，学会这个很有必要，能让你的帖子有更加清晰的排版。</p>
-<p>使用方法 <a target="_blank" rel="noopener" href="https://studygolang.com/markdown">MarkDown</a></p>
+        <p>非常感谢github的mr.wrfly，找了网络上绝大部分驱动，只有这个好用，而且还收到了耐心指导，这里只是做个备注，直接引自大神的操作 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">kali安装编译工具 sudo apt-get install linux-headers-$(uname -r) </span><br><span class="line"></span><br><span class="line">#这个是大神的脚本，可以到github上直接下载运行，也可以一步一步操作</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"># By-WrFly</span><br><span class="line">cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sources.list.bak</span><br><span class="line">echo &quot;</span><br><span class="line">deb-src http:&#x2F;&#x2F;http.kali.org&#x2F;kali sana main non-free contrib</span><br><span class="line">deb-src http:&#x2F;&#x2F;security.kali.org&#x2F;kali-security sana&#x2F;updates main contrib non-free</span><br><span class="line">deb http:&#x2F;&#x2F;http.kali.org&#x2F;kali sana main non-free contrib</span><br><span class="line">deb http:&#x2F;&#x2F;security.kali.org&#x2F;kali-security sana&#x2F;updates main contrib non-free</span><br><span class="line">&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install linux-headers-4.0.0.-kali-all-amd64</span><br><span class="line"></span><br><span class="line">cd ~&#x2F;Desktop</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;porjo&#x2F;mt7601.git</span><br><span class="line">cd mt7601&#x2F;src</span><br><span class="line">make</span><br><span class="line">mkdir -p &#x2F;etc&#x2F;Wireless&#x2F;RT2870STA&#x2F;</span><br><span class="line">cp RT2870STA.dat &#x2F;etc&#x2F;Wireless&#x2F;RT2870STA&#x2F;</span><br><span class="line">insmod os&#x2F;linux&#x2F;mt7601Usta.ko</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>引自<a target="_blank" rel="noopener" href="https://gist.github.com/wrfly/08da52c72904de2400e7">https://gist.github.com/wrfly/08da52c72904de2400e7</a></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B01%E7%9A%84%E6%95%B0%E9%87%8F/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B01%E7%9A%84%E6%95%B0%E9%87%8F/" class="post-title-link" itemprop="url">Untitled</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>322</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="无符号整数1的数量"><a href="#无符号整数1的数量" class="headerlink" title="无符号整数1的数量"></a>无符号整数1的数量</h1><ol>
-<li>朴素法<br>与无符号整数的位数有关，与1按位&amp;，然后整数右移一位</li>
-</ol>
-<pre><code class="golang">
-   func numberOf1(num uint64) int &#123;
-    c := 0
-    for num &gt; 0 &#123;
-        bn := num &amp; 1
-        if bn == 1 &#123;
-            c++
-        &#125;
-        num = num &gt;&gt; 1
-    &#125;
-    return c
-&#125;
-</code></pre>
-<ol start="2">
-<li><p>快速法</p>
-<p>只与无符号整数中1的个数有关，num =（num-1)+1，num &amp; (num -1)即可去掉num中最右侧的1</p>
-</li>
-</ol>
-<pre><code class="golang">   func numberOf12(num uint64) int &#123;
-    c := 0
-    for num &gt; 0 &#123;
-        num = num &amp; (num - 1)
-        c++
-    &#125;
-    return c
-&#125;
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/mac%E6%96%87%E4%BB%B6%E7%A0%B4%E6%8D%9F%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/mac%E6%96%87%E4%BB%B6%E7%A0%B4%E6%8D%9F%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Untitled</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>148</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="mac-文件显示破损无法打开"><a href="#mac-文件显示破损无法打开" class="headerlink" title="mac 文件显示破损无法打开"></a>mac 文件显示破损无法打开</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“Navicate Premium” is demaged and cant&#39;t be opened.You should move it to the Trash.</span><br></pre></td></tr></table></figure>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo bash</span><br><span class="line">xattr -cr /Applications/Navicat\ Premium.app/</span><br></pre></td></tr></table></figure>
-<h3 id="done"><a href="#done" class="headerlink" title="done"></a>done</h3>
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/21/proc/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
