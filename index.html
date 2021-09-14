@@ -335,6 +335,179 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/Android%20%E5%AE%89%E8%A3%85%20Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/21/Android%20%E5%AE%89%E8%A3%85%20Linux/" class="post-title-link" itemprop="url">Android 安装 Linux</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-21 21:50:23" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 14:39:12" itemprop="dateModified" datetime="2021-09-14T14:39:12+08:00">2021-09-14</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>677</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>材料准备：</strong></p>
+<ol>
+<li>需要软件：busybox，手机vnc客户端， 终端模拟器</li>
+<li>Android设备：获得root权限</li>
+<li>linux版本：可以到<a target="_blank" rel="noopener" href="http://sourceforge.net/projects/linuxonandroid/files/?source=navbar">http://sourceforge.net/projects/linuxonandroid/files/?source=navbar</a> 选择</li>
+<li>需要文件：ubuntu.sh ： ubuntu安装脚本<pre><code>     bootscript.sh：每次启动ubuntu脚本
+</code></pre>
+</li>
+<li>我装的是ubuntu 13.10 small 版，所需文件<br><a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1mhsofPY">http://pan.baidu.com/s/1mhsofPY</a></li>
+</ol>
+<p><strong>安装步骤：</strong></p>
+<ol>
+<li>安装busybox，手机vnc客户端， 终端模拟器</li>
+<li>将下载的ubuntu.sh  bootscript.sh 以及ubuntu.img和ubuntu.md5 放到新建目录ubuntu下面，将ubuntu文件夹存储到android设备下面的内部存储卡(sdcard)或者外部存储卡(extsdcard),我选择了外部存储卡</li>
+<li>打开终端模拟器，su 切换到root模式</li>
+<li>输入命令：cd  /mnt/extSdCard/ubuntu，然后  ls -l 查看一下文件是否齐全</li>
+<li>输入命令: sh ubuntu.sh 会提示你输入一些密码，或者一些其他的问题(输入y)</li>
+<li>默认的用户是ubuntu，所以安装完成之后 输入：su  ubuntu 切换到ubuntu 用户下，输入 vncpasswd (远程登录的密码)，这样服务端就设置好了。不要关闭会话端口。</li>
+<li>vnc客户端设置如下：<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMjIyMjAyOTQ3NDg5?x-oss-process=image/format,png" alt="这里写图片描述"></li>
+<li>ubuntu 13.10 small 版本界面如下：<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMjIyMjAzNDE0OTMy?x-oss-process=image/format,png" alt="这里写图片描述"></li>
+<li>终端模拟器中输入exit 即可停止ubuntu系统。下次运行ubuntu 直接 sh bootscript.sh 即可。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/hello-2021/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/21/hello-2021/" class="post-title-link" itemprop="url">hello-2021</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-21 21:50:23 / Modified: 21:50:45" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>11</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Hello  My 2021</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/golang%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -425,79 +598,6 @@ func New()*single&#123;
      return sin_instance
 &#125;
 </code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/hello-2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/hello-2021/" class="post-title-link" itemprop="url">hello-2021</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-21 21:50:23 / Modified: 21:50:45" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>11</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Hello  My 2021</p>
 
       
     </div>
@@ -906,101 +1006,6 @@ func New()*single&#123;
 </ol>
 <p>效果图：</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTE0MTQyMTI1MzAx?x-oss-process=image/format,png" alt="这里写图片描述"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/%E4%B8%80%E5%8F%B0%E7%89%A9%E7%90%86%E6%9C%BA%E6%A8%A1%E6%8B%9F%E5%A4%9Asocketip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/%E4%B8%80%E5%8F%B0%E7%89%A9%E7%90%86%E6%9C%BA%E6%A8%A1%E6%8B%9F%E5%A4%9Asocketip/" class="post-title-link" itemprop="url">一台物理机模拟多socketip</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-21 21:50:23" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-14 14:36:21" itemprop="dateModified" datetime="2021-09-14T14:36:21+08:00">2021-09-14</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一台物理机模拟多socketip"><a href="#一台物理机模拟多socketip" class="headerlink" title="一台物理机模拟多socketip"></a>一台物理机模拟多socketip</h1><p>1、配置网卡多ip：<br>初始网卡信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">lo        Link encap:Local Loopback</span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:4996559645 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:4996559645 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0</span><br><span class="line">          RX bytes:759318440193 (707.1 GiB)  TX bytes:759318440193 (707.1 GiB)</span><br><span class="line"></span><br><span class="line">xgbe0     Link encap:Ethernet  HWaddr 98:03:9B:7A:1E:F0</span><br><span class="line">          inet addr:10.229.197.145  Bcast:10.229.197.191  Mask:255.255.255.192</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:8795869042 errors:0 dropped:6515 overruns:0 frame:0</span><br><span class="line">          TX packets:4684090500 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000</span><br><span class="line">          RX bytes:9225606216786 (8.3 TiB)  TX bytes:419302401757 (390.5 GiB)</span><br></pre></td></tr></table></figure>
-
-<p>1、配置多ip通过增加别名的方式进行添加，对网卡xgbe0增加别名，格式为xgbe0:n (0&lt;=n&lt;=255), 对应的配置文件为/etc/sysconfig/network-scripts/ifcfg-xgbe0，在文件目录中添加ifcfg-xgbe0:10</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=xgbe0:10</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">ONBOOT=yes</span><br><span class="line">NETMASK=255.255.255.192</span><br><span class="line">IPADDR=192.168.0.10</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>2、设置虚拟网卡启动：ifup  xgbe0:10，可以看到网络配置中已有虚拟网卡的信息</p>
-<p>在本机上ping  192.168.0.10，已连通；如果想在其他机器上ping通，需要设置与其他机器相同的网络段</p>
-<p>类似的也可以设置 192.168.0.11等，但是此时如果通过curl发送请求192.168.0.11，实际使用的cip是192.168.0.10，</p>
-<p>这是应为请求的时候只是指定了服务端的ip地址，客户端的ip没有设定，一般会选择ip设置中的第一个作为默认cip，要</p>
-<p>想实现客户端ip设置为指定的ip，要在socket建立连接的时候显示指定客户端ip。</p>
-<p>以golang为例显示指定客户端ip：<br>自定义的Dial实现指定客户端IP：</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">DialCustom</span><span class="params">(network, address <span class="keyword">string</span>, timeout time.Duration, localIP []<span class="keyword">byte</span>, localPort <span class="keyword">int</span>)</span> <span class="params">(net.Conn, error)</span></span> &#123;</span><br><span class="line">    netAddr := &amp;net.TCPAddr&#123;Port: localPort&#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(localIP) != <span class="number">0</span> &#123;</span><br><span class="line">        netAddr.IP = localIP</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">&quot;netAddr:&quot;</span>, netAddr)</span><br><span class="line">    d := net.Dialer&#123;Timeout: timeout, LocalAddr: netAddr&#125;</span><br><span class="line">    <span class="keyword">return</span> d.Dial(network, address)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>附件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">FileBase=/etc/sysconfig/network-scripts/ifcfg-xgbe0</span><br><span class="line">ifcfg-xgbe0</span><br><span class="line">EndNum=20</span><br><span class="line"></span><br><span class="line">function SetUp()&#123;</span><br><span class="line">    for i in `seq 10 $EndNum`</span><br><span class="line">        do</span><br><span class="line">            cp $FileBase $FileBase:$i</span><br><span class="line">            sed -i &quot;s/xgbe0/xgbe0:$i/g&quot; $FileBase:$i</span><br><span class="line">            sed -i &quot;s/10.229.196.142/192.168.0.$i/g&quot; $FileBase:$i</span><br><span class="line">            ifup xgbe0:$i</span><br><span class="line">        done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Dele()&#123;</span><br><span class="line">    for i in `seq 10 $EndNum`</span><br><span class="line">        do </span><br><span class="line">           if [ -f $FileBase:$i ];</span><br><span class="line">           then</span><br><span class="line">               ifdown xgbe0:$i</span><br><span class="line">               rm $FileBase:$i</span><br><span class="line">           fi</span><br><span class="line">        done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function main()&#123;</span><br><span class="line">   if [ &quot;$1&quot;x == &quot;s&quot;x ]</span><br><span class="line">   then</span><br><span class="line">      SetUp</span><br><span class="line">   elif [ &quot;$1&quot;x == &quot;d&quot;x  ]</span><br><span class="line">   then</span><br><span class="line">      Dele</span><br><span class="line">   fi</span><br><span class="line">&#125;</span><br><span class="line">main $1</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
