@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -49,13 +49,13 @@
 
   <meta name="description" content="golang的单例模式单例模式单例模式：只有一个对象实例，全局唯一的公共使用的资源或者配置，节省内存，加快对象访问速度。 go语言单例模式非线程安全实现   12345678910111213141516package singletontype single struct&amp;#123;     O interface&amp;#123;&amp;#125;&amp;#125;var sin_instance *singl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YangLiu&#39;s Blog">
+<meta property="og:title" content="golang的单例模式">
 <meta property="og:url" content="http://yoursite.com/2021/01/21/golang%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="YangLiu&#39;s Blog">
 <meta property="og:description" content="golang的单例模式单例模式单例模式：只有一个对象实例，全局唯一的公共使用的资源或者配置，节省内存，加快对象访问速度。 go语言单例模式非线程安全实现   12345678910111213141516package singletontype single struct&amp;#123;     O interface&amp;#123;&amp;#125;&amp;#125;var sin_instance *singl">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-21T13:48:21.113Z">
-<meta property="article:modified_time" content="2021-01-21T13:48:21.113Z">
+<meta property="article:published_time" content="2021-01-21T13:50:23.000Z">
+<meta property="article:modified_time" content="2021-09-14T06:29:04.882Z">
 <meta property="article:author" content="Yang Liu">
 <meta name="twitter:card" content="summary">
 
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title> | YangLiu's Blog</title>
+  <title>golang的单例模式 | YangLiu's Blog</title>
   
 
 
@@ -184,7 +184,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          golang的单例模式
         </h1>
 
         <div class="post-meta">
@@ -194,8 +194,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
+              <time title="Created: 2021-01-21 21:50:23" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 14:29:04" itemprop="dateModified" datetime="2021-09-14T14:29:04+08:00">2021-09-14</time>
+              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -232,11 +239,14 @@
         <h1 id="golang的单例模式"><a href="#golang的单例模式" class="headerlink" title="golang的单例模式"></a>golang的单例模式</h1><h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>单例模式：只有一个对象实例，全局唯一的公共使用的资源或者配置，节省内存，加快对象访问速度。</p>
 <h2 id="go语言单例模式"><a href="#go语言单例模式" class="headerlink" title="go语言单例模式"></a>go语言单例模式</h2><p>非线程安全实现  </p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> singleton</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> single <span class="keyword">struct</span>&#123;</span><br><span class="line">     O <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sin_instance *single = <span class="literal">nil</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span> *<span class="title">single</span></span>&#123;</span><br><span class="line">     <span class="keyword">if</span> sin_instance == <span class="literal">nil</span>&#123;</span><br><span class="line">          sin_instance == <span class="built_in">new</span>(single)</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> sin_instance</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>结构体和全局变量都是小写，表示私有变量，只能在该package中使用全局变量<br>标识是否有初始化，如果没有初始化则通过New方法的调用实现全局初始化，<br>完成实例的创建，但是上面的方法不是线程安全的。</p>
 <p>线程安全实现  </p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> singleton</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;sync&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> single <span class="keyword">struct</span>&#123;</span><br><span class="line">     O <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sin_instance *single = <span class="literal">nil</span></span><br><span class="line"><span class="keyword">var</span> l sync.Mutex</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span>*<span class="title">single</span></span>&#123;</span><br><span class="line">     l.Lock()</span><br><span class="line">     <span class="keyword">defer</span> L.Unlock()</span><br><span class="line">     <span class="keyword">if</span> sin_instance == <span class="literal">nil</span>&#123;</span><br><span class="line">          sin_instance= <span class="built_in">new</span>(single)</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> sin_instance</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>在新建实例的时候对全局加锁，加锁之后在创建，在此基础上做优化,<br>加入原子操作，保证只有在某种情况下才会加锁进行对象实例化，<br>优化访问效率</p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> singleton</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;sync&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;sync/atomic&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> single <span class="keyword">struct</span>&#123;</span><br><span class="line">     O <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sin_instance *single = <span class="literal">nil</span></span><br><span class="line"><span class="keyword">var</span> l sync.Mutex</span><br><span class="line"><span class="keyword">var</span> flag unit32 =<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span>*<span class="title">single</span></span>&#123;</span><br><span class="line">     <span class="keyword">if</span> atomic.LoadUnit32(*flag) == <span class="number">1</span>&#123;</span><br><span class="line">          <span class="keyword">return</span> sin_instance</span><br><span class="line">     &#125;</span><br><span class="line">     l.Lock()</span><br><span class="line">     <span class="keyword">defer</span> L.Unlock()</span><br><span class="line">     <span class="keyword">if</span> flag == <span class="number">0</span>&#123;</span><br><span class="line">          sin_instance= <span class="built_in">new</span>(single)</span><br><span class="line">          atomic.StoreUint32(&amp;flag, <span class="number">1</span>)</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> sin_instance</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>golang的Once实现安全的单例模式</p>
 <pre><code class="golang">
 package singleton
@@ -272,12 +282,12 @@ func New()*single&#123;
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/21/32%E4%BD%8D%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2021/01/21/hello-2021/" rel="prev" title="hello-2021">
+      <i class="fa fa-chevron-left"></i> hello-2021
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/21/Happy-Life/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
+    <a href="/2021/01/21/32%E4%BD%8D%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/" rel="next" title="32位有符号整数反转">
+      32位有符号整数反转 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -399,7 +409,7 @@ func New()*single&#123;
     </span>
     <span title="Reading time total">9 mins.</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.3.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0

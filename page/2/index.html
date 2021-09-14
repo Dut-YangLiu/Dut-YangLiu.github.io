@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -169,155 +169,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/sublime3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/sublime3/" class="post-title-link" itemprop="url">Untitled</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>1、安装sublime text 3 ，目前gosublime不再支持sublime text2<br>2、安装之后打开sublime，安装package control，打开控制台control+`，在控制台输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h&#x3D;&#39;7183a2d3e96f11eeadd761d777e62404&#39;+&#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
-<p>3、重启sublime，打开preferences，多了package control以及其setting，安装成功<br>4、ctrl+shift+p打开控制面板选择 install packages，安装gosublime<br>5、设置gosublime,preferences-&gt;package-setting-&gt;user:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;env&quot;: &#123;</span><br><span class="line">        &quot;GOPATH&quot;: &quot;&#x2F;Users&#x2F;XXX&#x2F;mygo&quot;,</span><br><span class="line">        &quot;GOROOT&quot;: &quot;&#x2F;usr&#x2F;local&#x2F;Cellar&#x2F;go&#x2F;1.6.2&#x2F;libexec&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>6、设置go build, tools-&gt;build system-&gt;new build:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     &quot;shell_cmd&quot;:  &quot;go build $filename&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/markdown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Liu">
-      <meta itemprop="description" content="heyhey">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YangLiu's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/21/markdown/" class="post-title-link" itemprop="url">Untitled</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>67</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h1><p>这是一篇讲解如何正确使用 <strong>Markdown</strong> 的排版示例，学会这个很有必要，能让你的帖子有更加清晰的排版。</p>
-<p>使用方法 <a target="_blank" rel="noopener" href="https://studygolang.com/markdown">MarkDown</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B01%E7%9A%84%E6%95%B0%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -332,7 +183,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/21/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B01%E7%9A%84%E6%95%B0%E9%87%8F/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/01/21/%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B4%E6%95%B01%E7%9A%84%E6%95%B0%E9%87%8F/" class="post-title-link" itemprop="url">无符号整数1的数量</a>
         </h1>
 
         <div class="post-meta">
@@ -342,8 +193,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
+              <time title="Created: 2021-01-21 21:50:23" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 14:35:03" itemprop="dateModified" datetime="2021-09-14T14:35:03+08:00">2021-09-14</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -387,9 +245,7 @@
 &#125;
 </code></pre>
 <ol start="2">
-<li><p>快速法</p>
-<p>只与无符号整数中1的个数有关，num =（num-1)+1，num &amp; (num -1)即可去掉num中最右侧的1</p>
-</li>
+<li>快速法只与无符号整数中1的个数有关，num =（num-1)+1，num &amp; (num -1)即可去掉num中最右侧的1</li>
 </ol>
 <pre><code class="golang">   func numberOf12(num uint64) int &#123;
     c := 0
@@ -399,6 +255,7 @@
     &#125;
     return c
 &#125;
+   
 </code></pre>
 
       
@@ -419,7 +276,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/mac%E6%96%87%E4%BB%B6%E7%A0%B4%E6%8D%9F%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -433,7 +290,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/21/mac%E6%96%87%E4%BB%B6%E7%A0%B4%E6%8D%9F%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/01/21/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" class="post-title-link" itemprop="url">最长无重复字符子串</a>
         </h1>
 
         <div class="post-meta">
@@ -443,8 +300,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
+              <time title="Created: 2021-01-21 21:50:23" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 14:35:54" itemprop="dateModified" datetime="2021-09-14T14:35:54+08:00">2021-09-14</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -452,7 +316,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>148</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -471,9 +335,233 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="mac-文件显示破损无法打开"><a href="#mac-文件显示破损无法打开" class="headerlink" title="mac 文件显示破损无法打开"></a>mac 文件显示破损无法打开</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“Navicate Premium” is demaged and cant&#39;t be opened.You should move it to the Trash.</span><br></pre></td></tr></table></figure>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo bash</span><br><span class="line">xattr -cr /Applications/Navicat\ Premium.app/</span><br></pre></td></tr></table></figure>
-<h3 id="done"><a href="#done" class="headerlink" title="done"></a>done</h3>
+          <h1 id="最长无重复字符子串"><a href="#最长无重复字符子串" class="headerlink" title="最长无重复字符子串"></a>最长无重复字符子串</h1><p>使用滑动窗口的方法，查找以每个字符开头最长的无重复子串</p>
+<pre><code class="go">
+//max lengh of substr without repeat charactor
+package main
+
+import &quot;fmt&quot;
+
+//return maxlen and the indexs of byte in the str
+func FindMaxSubstr(str string) (int, []int) &#123;
+    strmap := make(map[byte]int, 0)
+    strres := make([]byte, 0)
+    reslen := 0
+    result := make([]int, 0)
+    i := 0
+    j := 0
+    n := len(str)
+    for i &lt; n &amp;&amp; j &lt; n &#123;
+        fmt.Println(i, j, strmap, strres, reslen)
+        //使用map记录每次遍历过程中无重复字符以及所在的位置信息
+        if _, ok := strmap[str[j]]; !ok &#123;
+            strmap[str[j]] = j
+            j++
+        &#125; else &#123;
+            //遇到重复字符，开始处理：
+            //与strres比较长短，以及清空初始化操作
+            //将i设置到j对应的字符第一次出现的下个位置，进行下一个过程
+            reslen = len(strres)
+            resstrij := len(strmap)
+            if reslen &lt; resstrij &#123;
+                strres = []byte(str[i:j])
+                result = make([]int, 0)
+                result = append(result, i)
+            &#125;
+            if reslen == resstrij &#123;
+                result = append(result, i)
+            &#125;
+            i = strmap[str[j]] + 1
+            j = i
+            strmap = make(map[byte]int, 0)
+        &#125;
+    &#125;
+    return reslen, result
+&#125;
+
+func main() &#123;
+    str := &quot;abccdeace&quot;
+    maxlen, idxs := FindMaxSubstr(str)
+    for _, idx := range idxs &#123;
+        fmt.Printf(&quot;the max sucstr of %v is %v\n&quot;, str, str[idx:idx+maxlen])
+    &#125;
+&#125;
+</code></pre>
+<p>运行结果：  </p>
+<p>0 0 map[] [] 0<br>0 1 map[97:0] [] 0<br>0 2 map[98:1 97:0] [] 0<br>0 3 map[97:0 98:1 99:2] [] 0<br>3 3 map[] [97 98 99] 0<br>3 4 map[99:3] [97 98 99] 0<br>3 5 map[100:4 99:3] [97 98 99] 0<br>3 6 map[101:5 99:3 100:4] [97 98 99] 0<br>3 7 map[101:5 97:6 99:3 100:4] [97 98 99] 0<br>4 4 map[] [99 100 101 97] 3<br>4 5 map[100:4] [99 100 101 97] 3<br>4 6 map[100:4 101:5] [99 100 101 97] 3<br>4 7 map[100:4 101:5 97:6] [99 100 101 97] 3<br>4 8 map[100:4 101:5 97:6 99:7] [99 100 101 97] 3<br>6 6 map[] [99 100 101 97] 4<br>6 7 map[97:6] [99 100 101 97] 4<br>6 8 map[97:6 99:7] [99 100 101 97] 4<br>the max sucstr of abccdeace is cdea<br>the max sucstr of abccdeace is deac<br>[Done] exited with code=0 in 0.456 seconds</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/Android%20%E5%AE%89%E8%A3%85%20Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/21/Android%20%E5%AE%89%E8%A3%85%20Linux/" class="post-title-link" itemprop="url">Android 安装 Linux</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-21 21:50:23" itemprop="dateCreated datePublished" datetime="2021-01-21T21:50:23+08:00">2021-01-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 14:39:12" itemprop="dateModified" datetime="2021-09-14T14:39:12+08:00">2021-09-14</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>677</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>材料准备：</strong></p>
+<ol>
+<li>需要软件：busybox，手机vnc客户端， 终端模拟器</li>
+<li>Android设备：获得root权限</li>
+<li>linux版本：可以到<a target="_blank" rel="noopener" href="http://sourceforge.net/projects/linuxonandroid/files/?source=navbar">http://sourceforge.net/projects/linuxonandroid/files/?source=navbar</a> 选择</li>
+<li>需要文件：ubuntu.sh ： ubuntu安装脚本<pre><code>     bootscript.sh：每次启动ubuntu脚本
+</code></pre>
+</li>
+<li>我装的是ubuntu 13.10 small 版，所需文件<br><a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1mhsofPY">http://pan.baidu.com/s/1mhsofPY</a></li>
+</ol>
+<p><strong>安装步骤：</strong></p>
+<ol>
+<li>安装busybox，手机vnc客户端， 终端模拟器</li>
+<li>将下载的ubuntu.sh  bootscript.sh 以及ubuntu.img和ubuntu.md5 放到新建目录ubuntu下面，将ubuntu文件夹存储到android设备下面的内部存储卡(sdcard)或者外部存储卡(extsdcard),我选择了外部存储卡</li>
+<li>打开终端模拟器，su 切换到root模式</li>
+<li>输入命令：cd  /mnt/extSdCard/ubuntu，然后  ls -l 查看一下文件是否齐全</li>
+<li>输入命令: sh ubuntu.sh 会提示你输入一些密码，或者一些其他的问题(输入y)</li>
+<li>默认的用户是ubuntu，所以安装完成之后 输入：su  ubuntu 切换到ubuntu 用户下，输入 vncpasswd (远程登录的密码)，这样服务端就设置好了。不要关闭会话端口。</li>
+<li>vnc客户端设置如下：<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMjIyMjAyOTQ3NDg5?x-oss-process=image/format,png" alt="这里写图片描述"></li>
+<li>ubuntu 13.10 small 版本界面如下：<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMjIyMjAzNDE0OTMy?x-oss-process=image/format,png" alt="这里写图片描述"></li>
+<li>终端模拟器中输入exit 即可停止ubuntu系统。下次运行ubuntu 直接 sh bootscript.sh 即可。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/Happy-Life/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/21/Happy-Life/" class="post-title-link" itemprop="url">Untitled</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-21 21:48:21" itemprop="dateCreated datePublished" datetime="2021-01-21T21:48:21+08:00">2021-01-21</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>47</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Good-Good-Study-Day-Day-Up"><a href="#Good-Good-Study-Day-Day-Up" class="headerlink" title="Good Good Study, Day Day Up!"></a>Good Good Study, Day Day Up!</h1><h2 id="Happy-EveryDay"><a href="#Happy-EveryDay" class="headerlink" title="Happy  EveryDay!"></a><strong>Happy  EveryDay!</strong></h2><h2 id="Happy-2020"><a href="#Happy-2020" class="headerlink" title="Happy 2020!"></a><strong>Happy 2020!</strong></h2><p><img src="/images/view.jpeg"></p>
+
       
     </div>
 
@@ -605,7 +693,7 @@
     </span>
     <span title="Reading time total">9 mins.</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.3.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
