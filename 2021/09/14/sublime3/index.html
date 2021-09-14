@@ -47,15 +47,15 @@
   };
 </script>
 
-  <meta name="description" content="–title:sublime text 3date:2021-01-21 21:50:23  1、安装sublime text 3 ，目前gosublime不再支持sublime text22、安装之后打开sublime，安装package control，打开控制台control+&#96;，在控制台输入： 1import urllib.request,os,hashlib; h&#x3D;&#39;7">
+  <meta name="description" content="title:sublime text 3date:2021-01-21 21:50:23  1、安装sublime text 3 ，目前gosublime不再支持sublime text22、安装之后打开sublime，安装package control，打开控制台control+&#96;，在控制台输入： 1import urllib.request,os,hashlib; h&#x3D;&#39;7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YangLiu&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/2021/09/14/sublime3/index.html">
 <meta property="og:site_name" content="YangLiu&#39;s Blog">
-<meta property="og:description" content="–title:sublime text 3date:2021-01-21 21:50:23  1、安装sublime text 3 ，目前gosublime不再支持sublime text22、安装之后打开sublime，安装package control，打开控制台control+&#96;，在控制台输入： 1import urllib.request,os,hashlib; h&#x3D;&#39;7">
+<meta property="og:description" content="title:sublime text 3date:2021-01-21 21:50:23  1、安装sublime text 3 ，目前gosublime不再支持sublime text22、安装之后打开sublime，安装package control，打开控制台control+&#96;，在控制台输入： 1import urllib.request,os,hashlib; h&#x3D;&#39;7">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-14T06:41:07.094Z">
-<meta property="article:modified_time" content="2021-09-14T06:41:07.094Z">
+<meta property="article:published_time" content="2021-09-14T06:52:01.474Z">
+<meta property="article:modified_time" content="2021-09-14T06:52:01.474Z">
 <meta property="article:author" content="Yang Liu">
 <meta name="twitter:card" content="summary">
 
@@ -194,7 +194,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-14 14:41:07" itemprop="dateCreated datePublished" datetime="2021-09-14T14:41:07+08:00">2021-09-14</time>
+              <time title="Created: 2021-09-14 14:52:01" itemprop="dateCreated datePublished" datetime="2021-09-14T14:52:01+08:00">2021-09-14</time>
             </span>
 
           
@@ -229,7 +229,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>–<br>title:sublime text 3<br>date:2021-01-21 21:50:23</p>
+        <hr>
+<p>title:sublime text 3<br>date:2021-01-21 21:50:23</p>
 <hr>
 <p>1、安装sublime text 3 ，目前gosublime不再支持sublime text2<br>2、安装之后打开sublime，安装package control，打开控制台control+`，在控制台输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h&#x3D;&#39;7183a2d3e96f11eeadd761d777e62404&#39;+&#39;e330c659d4bb41d3bdf022e94cab3cd0&#39;; pf &#x3D; &#39;Package Control.sublime-package&#39;; ipp &#x3D; sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by &#x3D; urllib.request.urlopen( &#39;http:&#x2F;&#x2F;packagecontrol.io&#x2F;&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh &#x3D; hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh !&#x3D; h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)</span><br></pre></td></tr></table></figure>
