@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="结论先行不建议从零自建，也不要让同一个 AI 既替你看私信、又对外接待同事。推荐“后台助理 + 前台分身”两层：同事找前台分身就像找你，它用你的知识、按你的口吻答复；后台助理带着你的权限，只替你本人干活。后台助理（只服务你）：直接用飞书官方的专属工作伙伴，它在官方选型指南里的定位就是面向个人的数字分身。它能盯关键人和群、起草回复，由你确认后再发。前台分身（服务同事）：另建一个“XX 的分身”，只挂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="飞书数字分身 · 方案调研">
+<meta property="og:url" content="http://yoursite.com/2026/10/21/feishu-digital-twin/index.html">
+<meta property="og:site_name" content="YangLiu&#39;s Blog">
+<meta property="og:description" content="结论先行不建议从零自建，也不要让同一个 AI 既替你看私信、又对外接待同事。推荐“后台助理 + 前台分身”两层：同事找前台分身就像找你，它用你的知识、按你的口吻答复；后台助理带着你的权限，只替你本人干活。后台助理（只服务你）：直接用飞书官方的专属工作伙伴，它在官方选型指南里的定位就是面向个人的数字分身。它能盯关键人和群、起草回复，由你确认后再发。前台分身（服务同事）：另建一个“XX 的分身”，只挂">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-21T14:03:40.000Z">
+<meta property="article:modified_time" content="2026-10-21T14:03:40.000Z">
+<meta property="article:author" content="Yang Liu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2026/10/21/feishu-digital-twin/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>飞书数字分身 · 方案调研 | YangLiu's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YangLiu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Happy Everyday</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2026/10/21/feishu-digital-twin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Liu">
+      <meta itemprop="description" content="heyhey">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangLiu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          飞书数字分身 · 方案调研
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2026-10-21 22:03:40" itemprop="dateCreated datePublished" datetime="2026-10-21T22:03:40+08:00">2026-10-21</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>5 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="结论先行"><a href="#结论先行" class="headerlink" title="结论先行"></a>结论先行</h2>
+<p>不建议从零自建，也不要让同一个 AI 既替你看私信、又对外接待同事。推荐“后台助理 + 前台分身”两层：同事找前台分身就像找你，它用你的知识、按你的口吻答复；后台助理带着你的权限，只替你本人干活。</p>
+<ol>
+<li>后台助理（只服务你）：直接用飞书官方的<a href="https://aily.feishu.cn/hc/1u7kleqg/jsmwydi4" target="_blank" rel="noopener">专属工作伙伴</a>，它在官方<a href="https://aily.feishu.cn/hc/1u7kleqg_7xmbj121" target="_blank" rel="noopener">选型指南</a>里的定位就是面向个人的数字分身。它能盯关键人和群、起草回复，由你确认后再发。</li>
+<li>前台分身（服务同事）：另建一个“XX 的分身”，只挂你精选的知识和技能，同事私聊或在群里 @ 它。原生用企业工作伙伴（一个 Agent 服务多人，每人每群记忆隔离）；要接内部系统时再自建（飞书机器人 + <a href="https://github.com/larksuite/cli" target="_blank" rel="noopener">lark-cli</a> + Eino ADK）。</li>
+<li>你的判断沉淀为技能：代码评审、仓库知识、答复口吻、授权边界都写成 SKILL.md，前后台共用。</li>
+</ol>
+<p>三条红线：同事始终知道在和 AI 分身对话；前台分身不持有你的用户权限；承诺、审批、对人的评价只由你本人发出。</p>
+<span id="more"></span>
+
+<h2 id="先对齐：数字分身要做什么"><a href="#先对齐：数字分身要做什么" class="headerlink" title="先对齐：数字分身要做什么"></a>先对齐：数字分身要做什么</h2>
+<p>数字分身和普通助理的区别是“代表你”：同事找它就像找你。所以它必须先回答四个问题。</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>设计要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>凭什么答（知识）</td>
+<td>只用你精选并愿意公开的内容：规范、文档、过往答复、评审技能；不含你的私聊和未公开文档</td>
+</tr>
+<tr>
+<td>像不像你（口吻）</td>
+<td>从你本人写的文档和发出的消息提炼“答复风格”技能，不拿别人的消息当素材</td>
+</tr>
+<tr>
+<td>能做主到哪（授权）</td>
+<td>分三档：可直接答、起草待你确认、必须转给你</td>
+</tr>
+<tr>
+<td>以谁的身份说话（身份）</td>
+<td>默认是标明 AI 的“XX 的分身”机器人；以你本人名义发言只用于你确认过的草稿</td>
+</tr>
+</tbody>
+</table>
+<p>分身有两种工作方式：同事直接找分身（前台代答），以及别人找你时由助理替你起草（后台代拟）。两者需要的权限完全不同，下文分开设计。若还想要形象和声音（视频、会议出镜），那是另一层，需你本人授权并按规定标识，本文不展开。</p>
+<h2 id="现状速览（截至-2026-年-10-月）"><a href="#现状速览（截至-2026-年-10-月）" class="headerlink" title="现状速览（截至 2026 年 10 月）"></a>现状速览（截至 2026 年 10 月）</h2>
+<p>飞书正把 Agent 当作与人并列的协作成员来设计：9 月的飞书 8.0 已支持把 Agent 像同事一样拉进群。产品名在 8 月有一轮调整，下表按时间倒序列出关键节点。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-09-15</td>
+<td>飞书 8.0 发布，Agent 可被搜索并拉进群协作，权限始终与使用者一致；团队智能体“豆包工作伙伴”同步发布，仍在与企业定向共创阶段（<a href="https://www.toutiao.com/article/7686017767585120804/" target="_blank" rel="noopener">i黑马</a>）</td>
+</tr>
+<tr>
+<td>2026-09-01</td>
+<td>豆包工作伙伴“主动工作”上线并开始计费，可推送每日前瞻、每日回顾、会议提醒（<a href="https://aily.feishu.cn/hc/1u7kleqg_1cnvbb55" target="_blank" rel="noopener">计费说明</a>）</td>
+</tr>
+<tr>
+<td>2026-08-25</td>
+<td>字节发布独立 AI 办公产品“豆包工作”，后与飞书共用一套账号体系（<a href="https://m.huxiu.com/article/4896760.html?type=text" target="_blank" rel="noopener">虎嗅</a>）</td>
+</tr>
+<tr>
+<td>2026-08-14</td>
+<td>飞书 aily 更名“豆包工作伙伴”：智能伙伴改称工作伙伴，团队智能伙伴改称团队工作伙伴，企业智能体改称企业工作伙伴（<a href="https://aily.feishu.cn/hc/1u7kleqg_1cnvbb55" target="_blank" rel="noopener">计费说明</a>）</td>
+</tr>
+<tr>
+<td>2026-07-23</td>
+<td>aily 升级：主动工作、团队共享智能体、多智能体协同，并支持接入第三方和企业自建 Agent（<a href="http://www.news.cn/tech/20260723/5a84c09560134a5c9937a825773fba95/c.html" target="_blank" rel="noopener">新华网</a>）</td>
+</tr>
+<tr>
+<td>2026-06-01</td>
+<td>扣子 3.0 上线，支持多人多 Agent 协作，可接入 Claude Code、Codex CLI（<a href="https://www.ithome.com/0/958/372.htm" target="_blank" rel="noopener">IT之家</a>）</td>
+</tr>
+<tr>
+<td>2026-03 下旬</td>
+<td>飞书官方开源面向 AI Agent 的命令行工具 lark-cli（<a href="https://github.com/larksuite/cli" target="_blank" rel="noopener">GitHub</a>）</td>
+</tr>
+<tr>
+<td>2026-03-19</td>
+<td>aily 升级，用户点击即可获得通晓自己上下文的个人 Agent，权限与本人严格一致（<a href="https://www.qbitai.com/2026/03/389311.html" target="_blank" rel="noopener">量子位</a>）</td>
+</tr>
+<tr>
+<td>2026-03-08</td>
+<td>工信部漏洞平台提示 OpenClaw 在默认或不当配置下安全风险较高（<a href="https://www.stdaily.com/web/gdxw/2026-03/08/content_482508.html" target="_blank" rel="noopener">科技日报</a>）</td>
+</tr>
+<tr>
+<td>2026-03-05</td>
+<td>飞书发布 OpenClaw 官方插件，补齐文档、消息、日历等飞书能力（<a href="https://www.feishu.cn/content/article/7613711414611463386" target="_blank" rel="noopener">飞书</a>）</td>
+</tr>
+</tbody>
+</table>
+<p>飞书 CEO 在 9 月大会上称，飞书通过 CLI 向 Agent 开放的功能点已从 3 月的 247 个增至 767 个（<a href="https://m.bjnews.com.cn/detail/1789459687129700.html" target="_blank" rel="noopener">新京报</a>）。</p>
+<h2 id="四条路线对比"><a href="#四条路线对比" class="headerlink" title="四条路线对比"></a>四条路线对比</h2>
+<p>后台助理首选 A 的专属工作伙伴；前台分身用 A 的企业工作伙伴，或 D 自建；B 适合当你的私人后台，不宜直接对外；C 只适合 FAQ 式分身。</p>
+<table>
+<thead>
+<tr>
+<th>路线</th>
+<th>上手成本</th>
+<th>定制深度</th>
+<th>主要风险</th>
+<th>在分身中的角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A 飞书原生（专属工作伙伴、企业工作伙伴、豆包工作）</td>
+<td>最低，开通即用</td>
+<td>平台内配置人设、技能、MCP；部分版本可换企业自定义模型</td>
+<td>能力边界由平台决定；按 AI 额度计费</td>
+<td>专属工作伙伴做后台助理；企业工作伙伴做前台分身</td>
+</tr>
+<tr>
+<td>B 开源个人 Agent（OpenClaw、Hermes）</td>
+<td>中，需部署运维</td>
+<td>极高：模型、Prompt、插件、多渠道</td>
+<td>安全面大：高危漏洞、恶意技能、公网暴露；密钥自管</td>
+<td>私人后台；单用户记忆，不宜直接对外</td>
+</tr>
+<tr>
+<td>C 低代码平台（扣子、Dify）</td>
+<td>低到中</td>
+<td>中：工作流、知识库、插件</td>
+<td>难读个人上下文，多为问答型</td>
+<td>FAQ 式前台分身</td>
+</tr>
+<tr>
+<td>D 完全自建（机器人 + Agent 框架 + lark-cli）</td>
+<td>高</td>
+<td>最高，可深度接内部系统</td>
+<td>工程投入和长期维护</td>
+<td>要接内部系统、需严格评测的前台分身</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>A 飞书原生</strong>：官方<a href="https://aily.feishu.cn/hc/1u7kleqg_7xmbj121" target="_blank" rel="noopener">选型指南</a>的分法是个人用选专属工作伙伴，团队共用选企业工作伙伴，深度定制选飞书 OpenClaw。企业工作伙伴支持 100 人共用一个 Agent、每人每群记忆物理隔离，带变更记录、diff 和一键回滚；凭证集中托管，Agent 不直接持有密钥，正是前台分身需要的。</li>
+<li><strong>A 的技能复用</strong>：豆包工作支持上传本地技能文件夹，要求含 skill.md，且开头有 YAML 格式的名称和描述（<a href="https://www.doubao.com/work/docs/zh-cn/articles/081010973544-skills" target="_blank" rel="noopener">帮助中心</a>），与现有 SKILL.md 格式基本兼容。</li>
+<li><strong>B 开源个人 Agent</strong>：飞书 OpenClaw 官方插件走长连接，分“以机器人身份”和“以你的身份”两种模式；后者以你的名义读写文档、搜索消息，官方建议仅限个人使用、不要分享给他人（<a href="https://www.feishu.cn/content/article/7613711414611463386" target="_blank" rel="noopener">插件说明</a>）。选型指南还指出 OpenClaw 是单用户记忆体系，不原生支持多人共用而记忆隔离，对外做分身要自己补齐。</li>
+<li><strong>B 的安全记录</strong>：2026 年初曝出多个高危漏洞（含跨站 WebSocket 劫持和命令注入）；官方复盘称 2 月底至 3 月初约 20% 的 ClawHub 技能为恶意或可疑（<a href="https://www.secrss.com/articles/88472" target="_blank" rel="noopener">安全内参</a>）。</li>
+<li><strong>C 低代码平台</strong>：扣子可一键发布为飞书机器人；Dify 需借助 LangBot 等开源桥接接入飞书（<a href="https://docs.dify.ai/zh-hans/learn-more/use-cases/connect-dify-to-various-im-platforms-by-using-langbot" target="_blank" rel="noopener">Dify 文档</a>）。适合只答规范和流程的 FAQ 式分身，难以替你处理个人事务。</li>
+<li><strong>D 完全自建</strong>：开放平台提供<a href="https://open.feishu.cn/document/mcp_open_tools/integrating-agents-with-feishu/overview" target="_blank" rel="noopener">一键创建飞书智能体应用</a> SDK（Node、Python、Java、Go），扫码即预置收发消息、文档评论、卡片回调等权限和长连接事件。Go 技术栈可选 <a href="https://www.cloudwego.io/docs/eino/core_modules/eino_adk/agent_quickstart/" target="_blank" rel="noopener">Eino ADK</a>，与 Kitex 同属 CloudWeGo，提供 ReAct 智能体、多 Agent 编排和中间件。</li>
+</ul>
+<h2 id="推荐方案：后台助理-前台分身"><a href="#推荐方案：后台助理-前台分身" class="headerlink" title="推荐方案：后台助理 + 前台分身"></a>推荐方案：后台助理 + 前台分身</h2>
+<p>两层之间隔一道权限墙：后台助理带着你的权限只服务你，前台分身只带精选知识面对同事，两边共用同一套技能。</p>
+<p><img alt="数字分身两层架构：前台与后台之间隔一道权限墙" src="/2026/10/21/feishu-digital-twin/architecture.svg"></p>
+<p>同事的问题先落到前台分身：能直接答的当场答，其余附摘要推给你，你确认后由分身代发或亲自回复。别人直接找你的消息，由后台助理起草，你确认后再以你的名义发出。</p>
+<ul>
+<li><strong>后台助理</strong>：专属工作伙伴可主动盯关键人和关键群，每天早上整理未读摘要和待办；上级来消息时可分析意图、补齐背景、起草回复供你参考（<a href="https://aily.feishu.cn/hc/1u7kleqg/jsmwydi4" target="_blank" rel="noopener">专属工作伙伴</a>）。</li>
+<li><strong>前台分身</strong>：企业工作伙伴挂团队知识空间和你的技能，进群 @ 即用，每位同事、每个群记忆隔离，改动可追溯、可回滚。</li>
+<li><strong>深度集成（可选）</strong>：自建分身通过 lark-cli 操作飞书、通过内部 MCP 接代码平台和 CI；豆包工作伙伴支持接入开源、第三方和企业自建的智能体，成熟后可与官方 Agent 组队。</li>
+<li><strong>本地执行</strong>：豆包工作伙伴主体在云端 7×24 运行；任务依赖本地文件、内网或已登录环境时，经飞书客户端在授权范围内调用本机执行（<a href="https://aily.feishu.cn/hc/1u7kleqg_3d5z9ttt" target="_blank" rel="noopener">功能手册</a>）。</li>
+</ul>
+<h2 id="关键设计点：身份、权限与边界"><a href="#关键设计点：身份、权限与边界" class="headerlink" title="关键设计点：身份、权限与边界"></a>关键设计点：身份、权限与边界</h2>
+<p>分身最容易出事的是身份和权限：前台一旦带着你的权限，同事一句话就可能让它读出你的私聊和文档。以下六点按优先级排列。</p>
+<ol>
+<li><strong>身份与告知</strong>：前台分身用独立机器人，名称、头像和每条回复都标明是 AI 分身。《人工智能生成合成内容标识办法》自 2025 年 9 月 1 日起施行，要求服务提供者对生成内容添加显式标识（<a href="https://www.news.cn/tech/20250319/a572ec4366f149c1b0b04a07ebf4931b/c.html" target="_blank" rel="noopener">新华网</a>），企业内部也建议照此执行。以你本人名义发消息需同时申请 <code>im:message</code> 和 <code>im:message.send_as_user</code>（<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create" target="_blank" rel="noopener">发送消息 API</a>），只用于你确认过的草稿。</li>
+<li><strong>权限隔离</strong>：前台分身只用应用身份和精选知识空间，不持有你的用户令牌。飞书 OpenClaw 插件对“以你的身份”模式的建议是仅限个人使用、不分享给他人（<a href="https://www.feishu.cn/content/article/7613711414611463386" target="_blank" rel="noopener">插件说明</a>）；<a href="https://github.com/larksuite/cli" target="_blank" rel="noopener">lark-cli</a> 也建议这类机器人不进群、不让他人使用。</li>
+<li><strong>授权分档与转人</strong>：直接答（规范、流程、已公开结论）；起草待确认（评审意见、排期、对外承诺）；必须转你（审批、对人的评价、未决事项、有冲突的话题）。转你时附上下文摘要卡片，你一键确认、改写或亲自回复（卡片回调 <code>card.action.trigger</code>），答复回流成分身知识。</li>
+<li><strong>知识与口吻</strong>：知识只取你愿意公开的内容，回答附出处链接，方便同事核对。口吻从你本人写的文档和发出的消息提炼成“答复风格”技能，不拿别人的消息当素材；专属工作伙伴也支持一句话设定名字、头像和说话风格。</li>
+<li><strong>入口与感知</strong>：机器人收不到别人发给你本人的私聊，只收到发给分身的单聊、群里 @ 和文档评论 @，用长连接接收即可，不需要公网地址。可在飞书签名或状态里写明“常见问题先问 @XX 的分身”；别人直接找你的消息，交给后台助理盯和起草。</li>
+<li><strong>记忆、审计与下线</strong>：每位同事、每个群的对话记忆隔离，事先说明保留期限和可见范围。所有 CLI 调用进飞书审计日志，并区分个人行为与应用行为（<a href="https://www.feishu.cn/content/article/7641519075810069471" target="_blank" rel="noopener">飞书 CLI 安全说明</a>）。分身用你的姓名和头像，开关应在你手里，转岗或离职时能随时下线。</li>
+</ol>
+<h2 id="结合质量架构岗位的首批场景"><a href="#结合质量架构岗位的首批场景" class="headerlink" title="结合质量架构岗位的首批场景"></a>结合质量架构岗位的首批场景</h2>
+<p>先放出问得多、风险低、你最容易验收的场景，下表按建议上线顺序排列。</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>谁发起</th>
+<th>分身做什么</th>
+<th>授权档</th>
+<th>落点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>质量规范与流程答疑</td>
+<td>同事私聊或群里 @</td>
+<td>按你的口吻答复，附规范链接</td>
+<td>直接答</td>
+<td>前台分身</td>
+</tr>
+<tr>
+<td>服务与 IDL 知识问答</td>
+<td>同事</td>
+<td>用仓库知识提取技能沉淀的知识作答，例如某接口的 IDL 在服务仓还是公共 IDL 仓</td>
+<td>直接答</td>
+<td>前台分身</td>
+</tr>
+<tr>
+<td>代码评审预审</td>
+<td>同事发评审链接</td>
+<td>用你的评审技能先过一遍，标注为预审意见</td>
+<td>起草待确认</td>
+<td>前台分身 + 评审技能（接仓库需自建或 MCP）</td>
+</tr>
+<tr>
+<td>求助分诊</td>
+<td>同事</td>
+<td>问清背景和紧急度，约时间或附摘要转给你</td>
+<td>必须转你</td>
+<td>前台分身</td>
+</tr>
+<tr>
+<td>关键人消息代拟</td>
+<td>别人发给你</td>
+<td>分析意图、补齐背景、起草回复</td>
+<td>你确认后发</td>
+<td>后台助理</td>
+</tr>
+<tr>
+<td>每日简报、会议纪要、周报</td>
+<td>定时或会后</td>
+<td>未读摘要、行动项、周报初稿</td>
+<td>你审阅</td>
+<td>后台助理</td>
+</tr>
+</tbody>
+</table>
+<p>后台部分基本开箱即用：专属工作伙伴已内置盯关键人消息并起草回复、每天早上整理未读和待办等用法。lark-cli 自带会议纪要汇总和站会报告两个工作流技能，可作为周报技能的起点。</p>
+<h2 id="落地路线"><a href="#落地路线" class="headerlink" title="落地路线"></a>落地路线</h2>
+<p>先把后台助理用起来，再小范围放出前台分身；每过一道闸门再扩大范围。</p>
+<p><img alt="落地路线：4 个阶段、3 道闸门" src="/2026/10/21/feishu-digital-twin/roadmap.svg"></p>
+<p>闸门 1 定下分身该答什么、不该答什么；闸门 2 用你过去真实答过的问题做盲测，看准确率和口吻；闸门 3 要求内测期间零越权。验收指标统一为五项：答复准确率、口吻认可率、该转未转次数、越权次数、每周替你分担的咨询量。</p>
+<h2 id="开工前待确认"><a href="#开工前待确认" class="headerlink" title="开工前待确认"></a>开工前待确认</h2>
+<p>以下七点决定方案能否落地，建议开工前逐条确认。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 公司是否允许以员工名义的 AI 分身答复同事，以及标识方式的要求。</li>
+<li><input disabled="" type="checkbox"> 前台分身能否由你本人在企业工作伙伴后台搭建，还是需要管理员开通。</li>
+<li><input disabled="" type="checkbox"> 租户的 AI 版本与额度：是否已开通豆包工作伙伴（超出每人每月免费额度需另购）。</li>
+<li><input disabled="" type="checkbox"> 哪些知识可以放进前台分身：规范、文档、过往答复各自的公开范围。</li>
+<li><input disabled="" type="checkbox"> 开放平台能否申请 <code>im:message.send_as_user</code>，审批人是谁；不行就统一走“你手动发送”。</li>
+<li><input disabled="" type="checkbox"> 公司对 OpenClaw 等开源 Agent 的安全政策，以及允许使用的模型。</li>
+<li><input disabled="" type="checkbox"> 要接的内部系统清单（代码平台、CI、缺陷平台）及接口形态（API 或 MCP）。</li>
+</ul>
+<h2 id="参考来源"><a href="#参考来源" class="headerlink" title="参考来源"></a>参考来源</h2>
+<ul>
+<li><a href="https://aily.feishu.cn/hc/1u7kleqg_7xmbj121" target="_blank" rel="noopener">选型指南：专属工作伙伴、飞书 OpenClaw、企业工作伙伴如何选</a></li>
+<li><a href="https://aily.feishu.cn/hc/1u7kleqg/jsmwydi4" target="_blank" rel="noopener">专属工作伙伴（功能手册）</a></li>
+<li><a href="https://aily.feishu.cn/hc/1u7kleqg_3d5z9ttt" target="_blank" rel="noopener">欢迎使用「豆包工作伙伴」</a></li>
+<li><a href="https://aily.feishu.cn/hc/1u7kleqg_1cnvbb55" target="_blank" rel="noopener">豆包工作伙伴计费说明</a></li>
+<li><a href="https://www.feishu.cn/hc/zh-CN/articles/790732948604-%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3%E8%B1%86%E5%8C%85%E5%B7%A5%E4%BD%9C%E4%BC%99%E4%BC%B4" target="_blank" rel="noopener">快速了解豆包工作伙伴（飞书帮助中心）</a></li>
+<li><a href="https://www.doubao.com/work/docs/zh-cn/articles/081010973544-skills" target="_blank" rel="noopener">在豆包工作中使用技能</a></li>
+<li><a href="http://www.news.cn/tech/20260723/5a84c09560134a5c9937a825773fba95/c.html" target="_blank" rel="noopener">飞书 aily 升级：主动工作与团队共享智能体（新华网）</a></li>
+<li><a href="https://www.qbitai.com/2026/03/389311.html" target="_blank" rel="noopener">飞书发布多款企业级 Agent（量子位）</a></li>
+<li><a href="https://www.toutiao.com/article/7686017767585120804/" target="_blank" rel="noopener">飞书发布 8.0 版本及团队智能体（i黑马）</a></li>
+<li><a href="https://m.bjnews.com.cn/detail/1789459687129700.html" target="_blank" rel="noopener">飞书 8.0 与豆包工作原生融合（新京报）</a></li>
+<li><a href="https://m.huxiu.com/article/4896760.html?type=text" target="_blank" rel="noopener">字节飞书发布豆包工作伙伴（虎嗅）</a></li>
+<li><a href="https://www.feishu.cn/content/article/7613711414611463386" target="_blank" rel="noopener">OpenClaw 飞书官方插件说明</a></li>
+<li><a href="https://open.feishu.cn/document/mcp_open_tools/integrating-agents-with-feishu/overview" target="_blank" rel="noopener">一键创建飞书智能体应用（飞书开放平台）</a></li>
+<li><a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create" target="_blank" rel="noopener">发送消息 API（飞书开放平台）</a></li>
+<li><a href="https://www.feishu.cn/content/article/7641519075810069471" target="_blank" rel="noopener">飞书 CLI 能力与安全说明</a></li>
+<li><a href="https://github.com/larksuite/cli" target="_blank" rel="noopener">larksuite/cli（GitHub）</a></li>
+<li><a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction" target="_blank" rel="noopener">飞书 OpenAPI MCP 文档</a></li>
+<li><a href="https://www.news.cn/tech/20250319/a572ec4366f149c1b0b04a07ebf4931b/c.html" target="_blank" rel="noopener">《人工智能生成合成内容标识办法》9 月 1 日起施行（新华网）</a></li>
+<li><a href="https://www.stdaily.com/web/gdxw/2026-03/08/content_482508.html" target="_blank" rel="noopener">工信部提示 OpenClaw 安全隐患（科技日报）</a></li>
+<li><a href="https://www.secrss.com/articles/88472" target="_blank" rel="noopener">OpenClaw 风险全链路分析（安全内参）</a></li>
+<li><a href="https://www.ithome.com/0/958/372.htm" target="_blank" rel="noopener">扣子 3.0 上线（IT之家）</a></li>
+<li><a href="https://docs.dify.ai/zh-hans/learn-more/use-cases/connect-dify-to-various-im-platforms-by-using-langbot" target="_blank" rel="noopener">用 LangBot 将 Dify 接入飞书等平台（Dify 文档）</a></li>
+<li><a href="https://www.feishu.cn/content/article/7630758640865037530" target="_blank" rel="noopener">Hermes Agent 安装与飞书接入（飞书）</a></li>
+<li><a href="https://www.cloudwego.io/docs/eino/core_modules/eino_adk/agent_quickstart/" target="_blank" rel="noopener">Eino ADK 快速开始（CloudWeGo）</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/31/python%20pip%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85%E9%97%AE%E9%A2%98/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%85%88%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">结论先行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E5%AF%B9%E9%BD%90%EF%BC%9A%E6%95%B0%E5%AD%97%E5%88%86%E8%BA%AB%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">先对齐：数字分身要做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E7%8A%B6%E9%80%9F%E8%A7%88%EF%BC%88%E6%88%AA%E8%87%B3-2026-%E5%B9%B4-10-%E6%9C%88%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">现状速览（截至 2026 年 10 月）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E6%9D%A1%E8%B7%AF%E7%BA%BF%E5%AF%B9%E6%AF%94"><span class="nav-number">4.</span> <span class="nav-text">四条路线对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E6%96%B9%E6%A1%88%EF%BC%9A%E5%90%8E%E5%8F%B0%E5%8A%A9%E7%90%86-%E5%89%8D%E5%8F%B0%E5%88%86%E8%BA%AB"><span class="nav-number">5.</span> <span class="nav-text">推荐方案：后台助理 + 前台分身</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%AE%BE%E8%AE%A1%E7%82%B9%EF%BC%9A%E8%BA%AB%E4%BB%BD%E3%80%81%E6%9D%83%E9%99%90%E4%B8%8E%E8%BE%B9%E7%95%8C"><span class="nav-number">6.</span> <span class="nav-text">关键设计点：身份、权限与边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E8%B4%A8%E9%87%8F%E6%9E%B6%E6%9E%84%E5%B2%97%E4%BD%8D%E7%9A%84%E9%A6%96%E6%89%B9%E5%9C%BA%E6%99%AF"><span class="nav-number">7.</span> <span class="nav-text">结合质量架构岗位的首批场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%90%BD%E5%9C%B0%E8%B7%AF%E7%BA%BF"><span class="nav-number">8.</span> <span class="nav-text">落地路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%B7%A5%E5%89%8D%E5%BE%85%E7%A1%AE%E8%AE%A4"><span class="nav-number">9.</span> <span class="nav-text">开工前待确认</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%9D%A5%E6%BA%90"><span class="nav-number">10.</span> <span class="nav-text">参考来源</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Liu</p>
+  <div class="site-description" itemprop="description">heyhey</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dut-yangliu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dut-yangliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Liu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">10k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">9 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
