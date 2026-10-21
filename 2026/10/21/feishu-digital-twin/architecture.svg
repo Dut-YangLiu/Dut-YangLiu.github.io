@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="760" height="520" role="img" aria-label="前台分身面对同事，后台助理只服务你，两边共享技能、不共享权限" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="13">
+  <title>前台分身面对同事，后台助理只服务你，两边共享技能、不共享权限</title>
+  <defs>
+    <marker id="twin-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8c959f"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="760" height="520" fill="#ffffff"/>
+
+  <text x="24" y="30" font-size="15" font-weight="600" fill="#24292f">前台分身面对同事，后台助理只服务你，两边共享技能、不共享权限</text>
+  <text x="186" y="58" text-anchor="middle" font-size="12.5" font-weight="600" fill="#57606a">前台 · 面对同事</text>
+  <text x="574" y="58" text-anchor="middle" font-size="12.5" font-weight="600" fill="#57606a">后台 · 只服务你</text>
+
+  <!-- 权限墙 -->
+  <g stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4">
+    <line x1="380" y1="70" x2="380" y2="214"/>
+    <line x1="380" y1="318" x2="380" y2="474"/>
+  </g>
+  <text x="380" y="498" text-anchor="middle" font-size="11.5" fill="#57606a">虚线是权限墙：前台分身不持有你的用户权限</text>
+
+  <!-- 连线 -->
+  <g fill="none" stroke="#8c959f" stroke-width="1.25">
+    <path d="M186 114V138" marker-end="url(#twin-arrow)"/>
+    <path d="M574 114V138" marker-end="url(#twin-arrow)"/>
+    <path d="M186 214V238" marker-end="url(#twin-arrow)"/>
+    <path d="M574 214V238" marker-end="url(#twin-arrow)"/>
+    <path d="M186 294V318" marker-end="url(#twin-arrow)"/>
+    <path d="M574 294V318" marker-end="url(#twin-arrow)"/>
+    <path d="M186 410V430" marker-end="url(#twin-arrow)"/>
+    <path d="M574 410V430" marker-end="url(#twin-arrow)"/>
+    <path d="M348 332H412" marker-end="url(#twin-arrow)"/>
+  </g>
+  <text x="380" y="310" text-anchor="middle" font-size="11.5" fill="#57606a">起草和转你的事推给你</text>
+
+  <!-- 第 1 行：入口 -->
+  <rect x="24" y="70" width="324" height="44" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="186" y="96" text-anchor="middle" fill="#24292f">同事：私聊分身，或在群里 @ 它</text>
+  <rect x="412" y="70" width="324" height="44" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="574" y="96" text-anchor="middle" fill="#24292f">别人发给你的消息 · 日程 · 文档</text>
+
+  <!-- 第 2 行：智能体 -->
+  <rect x="24" y="138" width="324" height="76" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="186" y="162" text-anchor="middle" font-weight="600" fill="#24292f">前台分身「XX 的分身」</text>
+  <text x="186" y="182" text-anchor="middle" font-size="11.5" fill="#57606a">企业工作伙伴或自建 · 机器人身份</text>
+  <text x="186" y="199" text-anchor="middle" font-size="11.5" fill="#57606a">名称和每条回复都标明 AI</text>
+  <rect x="412" y="138" width="324" height="76" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="574" y="162" text-anchor="middle" font-weight="600" fill="#24292f">后台助理（专属工作伙伴）</text>
+  <text x="574" y="182" text-anchor="middle" font-size="11.5" fill="#57606a">以你的权限 · 只在私聊中用</text>
+  <text x="574" y="199" text-anchor="middle" font-size="11.5" fill="#57606a">盯关键人和群 · 起草回复</text>
+
+  <!-- 第 3 行：共用技能 -->
+  <rect x="24" y="238" width="712" height="56" rx="8" fill="#f2f3f5" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="380" y="262" text-anchor="middle" font-weight="600" fill="#24292f">共用技能（SKILL.md）：代码评审 · 仓库知识 · 答复风格 · 授权边界</text>
+  <text x="380" y="282" text-anchor="middle" font-size="11.5" fill="#57606a">前台只用你精选公开的知识，后台在你的权限内读上下文</text>
+
+  <!-- 第 4 行：授权分档 / 你确认 -->
+  <rect x="24" y="318" width="324" height="92" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="186" y="342" text-anchor="middle" font-weight="600" fill="#24292f">按授权分三档</text>
+  <text x="186" y="362" text-anchor="middle" font-size="11.5" fill="#57606a">直接答：规范、流程、公开结论</text>
+  <text x="186" y="379" text-anchor="middle" font-size="11.5" fill="#57606a">起草待确认：评审意见、排期</text>
+  <text x="186" y="396" text-anchor="middle" font-size="11.5" fill="#57606a">必须转你：承诺、审批、评价</text>
+  <rect x="412" y="318" width="324" height="92" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="2"/>
+  <text x="574" y="342" text-anchor="middle" font-weight="600" fill="#24292f">你确认或修改</text>
+  <text x="574" y="362" text-anchor="middle" font-size="11.5" fill="#24292f">可改写、补充，或亲自回复</text>
+  <text x="574" y="379" text-anchor="middle" font-size="11.5" fill="#24292f">你的答复回流为分身知识</text>
+
+  <!-- 第 5 行：出口 -->
+  <rect x="24" y="430" width="324" height="44" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="186" y="456" text-anchor="middle" fill="#24292f">回复同事，标注由 AI 分身生成</text>
+  <rect x="412" y="430" width="324" height="44" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="574" y="456" text-anchor="middle" fill="#24292f">以你名义发出，或你手动发送</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 272" width="760" height="272" role="img" aria-label="先用原生跑通，每过一道闸门再加投入" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="13">
+  <title>先用原生跑通，每过一道闸门再加投入</title>
+  <rect x="0" y="0" width="760" height="272" fill="#ffffff"/>
+
+  <text x="24" y="30" font-size="15" font-weight="600" fill="#24292f">先用原生跑通，每过一道闸门再加投入</text>
+
+  <!-- 时间 -->
+  <g font-size="11.5" fill="#57606a" text-anchor="middle">
+    <text x="104" y="62">第 1 周</text>
+    <text x="288" y="62">第 2–3 周</text>
+    <text x="472" y="62">第 4–6 周</text>
+    <text x="656" y="62">第 7 周起</text>
+  </g>
+
+  <!-- 阶段 1 -->
+  <rect x="24" y="74" width="160" height="124" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#2563eb" stroke-width="2"/>
+  <text x="104" y="98" text-anchor="middle" font-weight="600" fill="#24292f">后台先用起来</text>
+  <g font-size="11.5" fill="#24292f" text-anchor="middle">
+    <text x="104" y="124">激活专属工作伙伴</text>
+    <text x="104" y="144">配置关注的人和群</text>
+    <text x="104" y="164">记下同事高频问题</text>
+  </g>
+
+  <!-- 阶段 2 -->
+  <rect x="208" y="74" width="160" height="124" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="288" y="98" text-anchor="middle" font-weight="600" fill="#24292f">沉淀技能与边界</text>
+  <g font-size="11.5" fill="#57606a" text-anchor="middle">
+    <text x="288" y="124">评审技能写成 SKILL.md</text>
+    <text x="288" y="144">写答复风格与授权档</text>
+    <text x="288" y="164">用历史问答建评测集</text>
+  </g>
+
+  <!-- 阶段 3 -->
+  <rect x="392" y="74" width="160" height="124" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="472" y="98" text-anchor="middle" font-weight="600" fill="#24292f">前台分身内测</text>
+  <g font-size="11.5" fill="#57606a" text-anchor="middle">
+    <text x="472" y="124">小范围同事试用</text>
+    <text x="472" y="144">先只开“直接答”一档</text>
+    <text x="472" y="164">其余一律转你确认</text>
+  </g>
+
+  <!-- 阶段 4 -->
+  <rect x="576" y="74" width="160" height="124" rx="8" fill="none" stroke="#8c959f" stroke-width="1.25"/>
+  <text x="656" y="98" text-anchor="middle" font-weight="600" fill="#24292f">扩大与深化</text>
+  <g font-size="11.5" fill="#57606a" text-anchor="middle">
+    <text x="656" y="124">向更多同事开放</text>
+    <text x="656" y="144">按需自建接内部系统</text>
+    <text x="656" y="164">持续跟踪评测指标</text>
+  </g>
+
+  <!-- 闸门 -->
+  <g fill="none" stroke="#8c959f" stroke-width="1.25">
+    <path d="M196 122L206 136L196 150L186 136z"/>
+    <path d="M380 122L390 136L380 150L370 136z"/>
+    <path d="M564 122L574 136L564 150L554 136z"/>
+  </g>
+  <g stroke="#8c959f" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="196" y1="150" x2="196" y2="212"/>
+    <line x1="380" y1="150" x2="380" y2="212"/>
+    <line x1="564" y1="150" x2="564" y2="212"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="196" y="230" font-size="12.5" font-weight="600" fill="#24292f">闸门 1</text>
+    <text x="196" y="248" font-size="11.5" fill="#57606a">高频问题与授权档定稿</text>
+    <text x="380" y="230" font-size="12.5" font-weight="600" fill="#24292f">闸门 2</text>
+    <text x="380" y="248" font-size="11.5" fill="#57606a">答复准确、口吻你认可</text>
+    <text x="564" y="230" font-size="12.5" font-weight="600" fill="#24292f">闸门 3</text>
+    <text x="564" y="248" font-size="11.5" fill="#57606a">内测零越权</text>
+  </g>
+</svg>
